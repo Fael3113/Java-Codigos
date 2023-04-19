@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Exemplo05 {
     public static void main(String[] args) {
-        Random numero = new Random(); 
+        var numero = new Random(); 
         int matrizA[][] = new int[2][2];
         int matrizB[][] = new int[2][2];
         int matrizAB[][] = new int[2][2];

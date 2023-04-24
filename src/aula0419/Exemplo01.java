@@ -27,22 +27,71 @@ public class Exemplo01 {
         } else {
             return false;
         }
-    }
-            
-    public static void main(String[] args) {
-        char[][] tabuleiro = new char[3][3];
-        limparTabuleiro(tabuleiro);
-        mostrarTabuleiro(tabuleiro);
+    }  
+    
+    public static void jogador1(char[][] tabuleiro) {
         var tc = new Scanner(System.in);
         int linha;
         int coluna;
         do {
+            System.out.println("Primeiro Jogador");
             System.out.println("Digite a posição linha (de 0 a 2)");
             linha = tc.nextInt();
             System.out.println("Digite a posição ooluna (de 0 a 2)");
             coluna = tc.nextInt();
+            System.out.println("Sua rodada terminou");
         } while (!testaJogada(tabuleiro, linha, coluna));
         tabuleiro[linha][coluna] = 'x';
         mostrarTabuleiro(tabuleiro);
+    }
+    
+    public static void jogador2(char [][] tabuleiro) {
+        var tc = new Scanner(System.in);
+        int linha;
+        int coluna;
+        do {
+            System.out.println("Segundo jogador");
+            System.out.println("Digite a posição linha (de 0 a 2)");
+            linha = tc.nextInt();
+            System.out.println("Digite a posição ooluna (de 0 a 2)");
+            coluna = tc.nextInt();
+            System.out.println("Sua rodada terminou");
+        } while (!testaJogada(tabuleiro, linha, coluna));
+        tabuleiro[linha][coluna] = 'o';
+        mostrarTabuleiro(tabuleiro);
+    }
+    
+    public static void main(String[] args) {
+        char[][] tabuleiro = new char[3][3];
+        var tc = new Scanner(System.in);
+        boolean parar = true;
+        limparTabuleiro(tabuleiro);
+        mostrarTabuleiro(tabuleiro);
+        while (parar){
+            System.out.println("Digite 4 caso o vencedor seja o jogador 1");
+            System.out.println("Digite 5 caso o vencedor seja o jogador 2");
+            System.out.println("Digite 6 caso seja empate");
+            System.out.println("Após cada jogada, digite um numero aleatorio\n" +
+                                "diferente aos indicados caso não houver vencendor");
+            jogador1(tabuleiro);
+            int vencedor = tc.nextInt();
+            jogador2(tabuleiro);
+            vencedor = tc.nextInt();
+            switch (vencedor){
+                case 4:
+                    System.out.println("O vencedor é o jogador 1 com x");
+                    parar = false;
+                    break;
+                case 5:
+                    System.out.println("O vencedor é o jogador 2 com o");
+                    parar = false;
+                    break;
+                case 6:
+                    System.out.println("Deu empate");
+                    parar = false;
+                    break;
+                default: System.out.println("Proxima rodada");
+            }
+        } 
     }
 }

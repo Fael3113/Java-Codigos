@@ -68,6 +68,8 @@ public class Exemplo01 {
         limparTabuleiro(tabuleiro);
         mostrarTabuleiro(tabuleiro);
         while (parar){
+            System.out.println("Bem vindo ao Jogo da Velha");
+            System.out.println("Regras:");
             System.out.println("Digite 4 caso o vencedor seja o jogador 1");
             System.out.println("Digite 5 caso o vencedor seja o jogador 2");
             System.out.println("Digite 6 caso seja empate");

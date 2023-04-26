@@ -43,15 +43,19 @@ public class AlunoPSC {
         return this.notas;
     }
 
-    public boolean setNotas(double[] notas){
-        if (notas.length == 3){
-            this.notas = notas;
-            return true;
-        } else {
+    public boolean setNotas(double nota, int av){
+        if (av <= 0 || av > 3){
             return false;
+        } else {
+            if(nota < 0 || nota > 10){
+                return false;
+            } else {
+                this.notas[av] = nota;
+                return true;
+            }
         }
-    }
-
+    }    
+        
     public double getFreq(){
         return this.freq;
     }

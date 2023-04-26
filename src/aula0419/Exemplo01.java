@@ -74,8 +74,10 @@ public class Exemplo01 {
             System.out.println("Após cada jogada, digite um numero aleatorio\n" +
                                 "diferente aos indicados caso não houver vencendor");
             jogador1(tabuleiro);
+            System.out.println("Alguem venceu?");
             int vencedor = tc.nextInt();
             jogador2(tabuleiro);
+            System.out.println("Alguem venceu?");
             vencedor = tc.nextInt();
             switch (vencedor){
                 case 4:

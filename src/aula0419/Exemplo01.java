@@ -37,7 +37,7 @@ public class Exemplo01 {
             System.out.println("Primeiro Jogador");
             System.out.println("Digite a posição linha (de 0 a 2)");
             linha = tc.nextInt();
-            System.out.println("Digite a posição ooluna (de 0 a 2)");
+            System.out.println("Digite a posição coluna (de 0 a 2)");
             coluna = tc.nextInt();
             System.out.println("Sua rodada terminou");
         } while (!testaJogada(tabuleiro, linha, coluna));
@@ -53,7 +53,7 @@ public class Exemplo01 {
             System.out.println("Segundo jogador");
             System.out.println("Digite a posição linha (de 0 a 2)");
             linha = tc.nextInt();
-            System.out.println("Digite a posição ooluna (de 0 a 2)");
+            System.out.println("Digite a posição coluna (de 0 a 2)");
             coluna = tc.nextInt();
             System.out.println("Sua rodada terminou");
         } while (!testaJogada(tabuleiro, linha, coluna));
@@ -76,11 +76,9 @@ public class Exemplo01 {
             System.out.println("Após cada jogada, digite um numero aleatorio\n" +
                                 "diferente aos indicados caso não houver vencendor");
             jogador1(tabuleiro);
-            System.out.println("Alguem venceu?");
-            int vencedor = tc.nextInt();
             jogador2(tabuleiro);
             System.out.println("Alguem venceu?");
-            vencedor = tc.nextInt();
+            int vencedor = tc.nextInt();
             switch (vencedor){
                 case 4:
                     System.out.println("O vencedor é o jogador 1 com x");

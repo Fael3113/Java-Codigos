@@ -13,8 +13,7 @@ public class JogoDaVelha {
                 (tabuleiro[1][i] != '-') &&
                 (tabuleiro[2][i] != '-')) {
                 ganha = ganha || true;
-            }
-            else {
+            } else {
                 ganha = ganha || false;
             }
         }
@@ -34,7 +33,7 @@ public class JogoDaVelha {
         return ganha;
     }
     
-     public static boolean ganhaLinha(char[][] tabuleiro) {
+    public static boolean ganhaLinha(char[][] tabuleiro) {
         boolean ganha = false;
         for (int i = 0; i < 3; i++) {
             if ((tabuleiro[i][0] == tabuleiro[i][1]) && 
@@ -43,25 +42,35 @@ public class JogoDaVelha {
                 (tabuleiro[i][1] != '-') &&
                 (tabuleiro[i][2] != '-')) {
                 ganha = ganha || true;
-            }
-            else {
+            } else {
                 ganha = ganha || false;
             }
         }
         return ganha;
     }
     
+    public static boolean preenchidoTabuleiro(char[][] tabuleiro){
+        boolean ganha = false;
+        for(int i = 0; i < tabuleiro.length; i++){
+            for(int j = 0; j < tabuleiro.length; j++){
+                if(tabuleiro[i][j] != '-'){
+                    ganha = ganha || false;                
+                } else {
+                    ganha = ganha || true;
+                }           
+            }
+        }
+        return ganha;
+    } 
 
     public static void mostraTabuleiro(char[][] tabuleiro) {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.printf("%c", tabuleiro[i][j]);
+        for(int i = 0; i < tabuleiro.length; i++){
+            for(int j = 0; j < tabuleiro.length; j++){
+                System.out.print(tabuleiro[i][j] + " ");
             }
             System.out.println("");
         }
     }
-    
-    
     
     public static void limpaTabuleiro (char[][] tabuleiro) {
         for (int i = 0; i < tabuleiro.length; i++ ) {
@@ -81,48 +90,52 @@ public class JogoDaVelha {
         }               
     }
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        
-        char[][] tabuleiro = new char[3][3];
-        
-        Scanner sc = new Scanner(System.in);
-        
-        //nome: jogador1 e jogador2,
-        //simbolos: x o
-        // posições de 0 a 2
-        
-        limpaTabuleiro(tabuleiro);
-        mostraTabuleiro(tabuleiro);
-        
-        //teste de jogo sem vitorias
-        /*
-        int linha = 0;
-        int coluna = 0;
+    public static void jogador1(char[][] tabuleiro) {
+        var tc = new Scanner(System.in);
+        int linha;
+        int coluna;
         do {
-            System.out.println("Digite a linha do jogador 1 - x");
-            linha = sc.nextInt();
-            System.out.println("Digite a coluna do jogador 1 - x");
-            coluna = sc.nextInt();       
+            System.out.println("Primeiro Jogador");
+            System.out.println("Digite a posição linha (de 0 a 2)");
+            linha = tc.nextInt();
+            System.out.println("Digite a posição coluna (de 0 a 2)");
+            coluna = tc.nextInt();
+            System.out.println("Sua rodada terminou");
         } while (!testaJogada(tabuleiro, linha, coluna));
         tabuleiro[linha][coluna] = 'x';
-        
         mostraTabuleiro(tabuleiro);
-        */
-        
-        tabuleiro[0][0] = 'x';
-        tabuleiro[0][1] = 'x';    
-        tabuleiro[0][2] = 'x';
-        System.out.println(ganhaColuna(tabuleiro) || 
-                           ganhaLinha(tabuleiro) || 
-                           ganhaDiag(tabuleiro));
-        
-
-        
-        
     }
     
+    public static void jogador2(char [][] tabuleiro) {
+        var tc = new Scanner(System.in);
+        int linha;
+        int coluna;
+        do {
+            System.out.println("Segundo jogador");
+            System.out.println("Digite a posição linha (de 0 a 2)");
+            linha = tc.nextInt();
+            System.out.println("Digite a posição coluna (de 0 a 2)");
+            coluna = tc.nextInt();
+            System.out.println("Sua rodada terminou");
+        } while (!testaJogada(tabuleiro, linha, coluna));
+        tabuleiro[linha][coluna] = 'o';
+        mostraTabuleiro(tabuleiro);    
+    }
+    
+    public static void main(String[] args) {        
+        char[][] tabuleiro = new char[3][3];
+        boolean partida = true;
+        limpaTabuleiro(tabuleiro);
+        mostraTabuleiro(tabuleiro);
+        do{
+            jogador1(tabuleiro); 
+            if (ganhaColuna(tabuleiro) || ganhaDiag(tabuleiro) || 
+                ganhaLinha(tabuleiro) == false) {
+                jogador2(tabuleiro);
+            } else if (ganhaColuna(tabuleiro) || ganhaDiag(tabuleiro) || 
+                ganhaLinha(tabuleiro) || preenchidoTabuleiro(tabuleiro) == true) {
+                partida = false;
+            }
+        } while (partida);     
+    }  
 }

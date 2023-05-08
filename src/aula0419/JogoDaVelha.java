@@ -48,20 +48,6 @@ public class JogoDaVelha {
         }
         return ganha;
     }
-    
-    public static boolean preenchidoTabuleiro(char[][] tabuleiro){
-        boolean ganha = false;
-        for(int i = 0; i < tabuleiro.length; i++){
-            for(int j = 0; j < tabuleiro.length; j++){
-                if(tabuleiro[i][j] != '-'){
-                    ganha = ganha || false;                
-                } else {
-                    ganha = ganha || true;
-                }           
-            }
-        }
-        return ganha;
-    } 
 
     public static void mostraTabuleiro(char[][] tabuleiro) {
         for(int i = 0; i < tabuleiro.length; i++){
@@ -133,7 +119,7 @@ public class JogoDaVelha {
                 ganhaLinha(tabuleiro) == false) {
                 jogador2(tabuleiro);
             } else if (ganhaColuna(tabuleiro) || ganhaDiag(tabuleiro) || 
-                ganhaLinha(tabuleiro) || preenchidoTabuleiro(tabuleiro) == true) {
+                ganhaLinha(tabuleiro) == true) {
                 partida = false;
             }
         } while (partida);     

@@ -11,7 +11,7 @@ public class Main {
         System.out.println("Digite o nome do teu heroi:");
         String nome = tc.next();
         
-        Personagem heroi = new Personagem(nome, 20);
+        Personagens heroi = new Personagens(nome, 20);
         
         System.out.println("Renomeie teu personagem:");
         nome = tc.next();

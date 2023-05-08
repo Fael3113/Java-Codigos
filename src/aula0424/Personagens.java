@@ -1,18 +1,18 @@
 package aula0424;
 
-public class Personagem {
+public class Personagens {
     // ATRIBUTOS
     private int vida; // Vida do personagem
     private String nome; // Nome do personagem
     private String funcao; // Função dele no jogo
     
     // MÉTODO CONSTRUTOR PADRÃO DO JAVA
-    public Personagem() {
+    public Personagens() {
         
     }
     
     // NOVO MÉTODO CONSTUTOR -> Instanciar os objetos da maneira esperada.
-    public Personagem(String nome, int vida){
+    public Personagens(String nome, int vida){
         this.vida = vida;
         this.nome = nome;
     }

@@ -2,8 +2,8 @@ package aula0508Exemplo02;
 
 public class Personagem {
     // ATRIBUTOS
-    private int vida; // Vida do personagem
-    private String nome; // Nome do personagem
+    public int vida; // Vida do personagem
+    public String nome; // Nome do personagem
     private boolean atacavel = false;
 
     public Personagem(String nome, int vida) {

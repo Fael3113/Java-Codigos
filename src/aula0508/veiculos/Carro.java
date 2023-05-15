@@ -8,4 +8,13 @@ public class Carro extends Veiculo{
     public double potencia = 65;
     public String combustivel = "Gasolina";
     
+    public void getRodas(){
+        System.out.println("Tenho "+rodas+" rodas");
+    }
+    
+    public void andarBuzinando(){
+        super.andar(true);
+        System.out.println("Tambem estou buzinando");
+    }
+    
 }

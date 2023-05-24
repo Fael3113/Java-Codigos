@@ -25,17 +25,21 @@ public class Aluno extends Pessoa{
     @Override
     public boolean entrar(int codigo){
         if (codigo == ra) {
+            System.out.println("Entrada");
             return true;
         } else {
+            System.out.println("Nao autorizou a entrada");
             return false;
         }
     }
     
     @Override
     public boolean sair(int codigo){
-        if (codigo != ra) {
+        if (codigo == ra) {
+            System.out.println("Saida");
             return true;
         } else {
+            System.out.println("Nao autorizou a saida");
             return false;
         }
     }

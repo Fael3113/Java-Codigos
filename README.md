@@ -1,5 +1,7 @@
 # Java-Codes
  
-#Código para exercitar java
+Código para exercitar java
 
-#IDE usada: Apache Netbeans 18
+JDK: 19
+
+IDE usada: Apache Netbeans 18
